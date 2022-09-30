@@ -3,12 +3,12 @@ import './App.css';
 import SingleCard from './components/SingleCard';
 
 const cardImages = [
-	{ src: '/img/helmet-1.png', matched: false },
-	{ src: '/img/potion-1.png', matched: false },
-	{ src: '/img/ring-1.png', matched: false },
-	{ src: '/img/scroll-1.png', matched: false },
-	{ src: '/img/shield-1.png', matched: false },
-	{ src: '/img/sword-1.png', matched: false },
+	{ src: '/img/bear.png', matched: false },
+	{ src: '/img/chicken.png', matched: false },
+	{ src: '/img/cow.png', matched: false },
+	{ src: '/img/monkey.png', matched: false },
+	{ src: '/img/elephant.png', matched: false },
+	{ src: '/img/fox.png', matched: false },
 ];
 
 function App() {
@@ -74,25 +74,32 @@ function App() {
 
 	return (
 		<div className="App">
-			<h1>Magic Match</h1>
-			<button onClick={shuffleCards}>New Game</button>
+			<div
+				style={{
+					backgroundColor: 'black',
+					opacity: 0.8,
+				}}
+			>
+				<h1>Magic Match</h1>
+				<button onClick={shuffleCards}>New Game</button>
 
-			<div className="card-grid">
-				{cards.map((card) => (
-					<SingleCard
-						key={card.id}
-						card={card}
-						handleChoice={handleChoice}
-						flipped={
-							card === choiceOne ||
-							card === choiceTwo ||
-							card.matched
-						}
-						disabled={disabled}
-					/>
-				))}
+				<div className="card-grid">
+					{cards.map((card) => (
+						<SingleCard
+							key={card.id}
+							card={card}
+							handleChoice={handleChoice}
+							flipped={
+								card === choiceOne ||
+								card === choiceTwo ||
+								card.matched
+							}
+							disabled={disabled}
+						/>
+					))}
+				</div>
+				<p>Turns: {turns}</p>
 			</div>
-			<p>Turns: {turns}</p>
 		</div>
 	);
 }
